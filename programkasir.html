@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+
+        }
+        .univ{
+            display:flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            padding: 170px;
+            gap: 50px;
+
+        }
+        .inner{
+            display: flex;
+            flex-direction: column;
+            background-color: #DBE4C9;
+            gap : 20px;
+            width: 40vh;
+            padding: 30px;
+            border: solid;
+            border-radius: 15px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class = "univ">
+        <h2>Program Kasir Sederhana</h2>
+        <div class = "inner">
+            <div class ="hargaB">
+                <label for="harga">Harga Barang : </label>
+                <input type="number" id= "harga">
+            </div>
+            <div class = "jumlahB">
+                <label for="jumlah">Jumlah : </label>
+                <input type="number" id="jumlah">
+            </div>
+            <div>
+                <br><input type="button" value="total" onclick= "hitungdiskon()">
+            </div>
+            <p id ="hasil"></p>
+        </div>
+    </div>
+
+    <script>
+        function hitungdiskon(){
+            let harga1 = document.getElementById("harga").value;
+            let jumlah1 = document.getElementById("jumlah").value;
+            
+            let harga = Number(harga1);
+            let jumlah = Number(jumlah1);
+            
+            let totalbelanja = harga * jumlah;
+            if (totalbelanja > 100000) {
+                let total_setelah_diskon = totalbelanja - (totalbelanja * 10/100);
+                document.getElementById("hasil").innerHTML = "Selamat anda mendapatkan diskon <br>" + "Total belanja anda : " + totalbelanja + "<br>Harga setelah diskon  : " + total_setelah_diskon;
+            } else {
+                document.getElementById("hasil").innerHTML = "Anda tidak mendapat diskon" + "<br>Total belanja anda : " + totalbelanja;
+            }
+        }
+    </script>
+</body>
+</html>
